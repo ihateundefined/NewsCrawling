@@ -8,8 +8,8 @@
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100 font-['Pretendard']">
-  <div class="min-h-screen py-8 px-4 sm:px-6 lg:px-8">
-    <div class="max-w-4xl mx-auto">
+  <div class="min-h-screen flex justify-center items-start">
+    <div class="w-full max-w-4xl px-4 sm:px-6 lg:px-8 py-8">
       <h1 class="text-3xl font-bold text-gray-900 text-center mb-8">뉴스 크롤러 & 분석</h1>
 
       <div class="bg-white shadow rounded-lg p-6 mb-8">
@@ -17,7 +17,7 @@
           <input
             type="text"
             id="keyword"
-            placeholder="검색 키워드를 입력하세요 (예: 테슬라)"
+            placeholder="검색 키워드를 입력하세요 (예: 유재석)"
             class="flex-1 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
           <button
@@ -65,72 +65,6 @@
       </div>
     </div>
   </div>
-
-  <script>
-    document.getElementById('search-btn').addEventListener('click', async () => {
-      const keyword = document.getElementById('keyword').value.trim();
-      const error = document.getElementById('error');
-      const results = document.getElementById('results');
-      const loading = document.getElementById('loading');
-
-      if (!keyword) {
-        error.textContent = '키워드를 입력해주세요.';
-        error.classList.remove('hidden');
-        return;
-      }
-
-      error.classList.add('hidden');
-      results.classList.add('hidden');
-      loading.classList.remove('hidden');
-
-      try {
-        const response = await fetch('/search', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: `keyword=${encodeURIComponent(keyword)}`
-        });
-
-        const data = await response.json();
-
-        if (!response.ok) {
-          error.textContent = data.error || '데이터를 가져오는 중 오류가 발생했습니다.';
-          error.classList.remove('hidden');
-          return;
-        }
-
-        // Clear previous results
-        const articlesList = document.getElementById('articles');
-        articlesList.innerHTML = '';
-
-        // Display articles
-        if (data.articles && data.articles.length > 0) {
-          data.articles.forEach(([date, text]) => {
-            const li = document.createElement('li');
-            li.innerHTML = `<span class="text-gray-500">[${date}]</span> ${text}`;
-            articlesList.appendChild(li);
-          });
-        } else {
-          articlesList.innerHTML = '<li class="text-gray-500">검색된 기사가 없습니다.</li>';
-        }
-
-        // Display word cloud
-        const wordcloudImg = document.getElementById('wordcloud');
-        wordcloudImg.src = data.wordcloud || 'data:image/png;base64,';
-
-        // Display sentiment analysis
-        document.getElementById('positive').textContent = data.sentiment['긍정'] || 0;
-        document.getElementById('negative').textContent = data.sentiment['부정'] || 0;
-        document.getElementById('neutral').textContent = data.sentiment['중립'] || 0;
-
-        results.classList.remove('hidden');
-      } catch (err) {
-        error.textContent = '데이터를 가져오는 중 오류가 발생했습니다.';
-        error.classList.remove('hidden');
-        console.error(err);
-      } finally {
-        loading.classList.add('hidden');
-      }
-    });
-  </script>
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>

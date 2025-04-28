@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify, send_from_directory 
+from flask import Flask, render_template, request, jsonify 
 import requests
 from bs4 import BeautifulSoup
 from datetime import datetime, timedelta
@@ -13,13 +13,13 @@ import sys
 
 app = Flask(__name__)
 
-# Configure logging
 logging.basicConfig(level=logging.DEBUG)
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 FONT_PATH = os.path.join(BASE_DIR, 'fonts', 'Pretendard-Regular.ttf')
 
 # 서버 시작할 때 폰트 존재 여부 확인
+# word cloud에 반드시 필요함!
 if not os.path.exists(FONT_PATH):
     logging.error(f"❌ 폰트 파일이 {FONT_PATH} 에 없습니다. 서버 종료합니다.")
     sys.exit(1)  # 폰트 없으면 서버를 아예 죽여버림
@@ -63,17 +63,9 @@ def analyze_sentiment(text):
         logging.error(f"Sentiment analysis failed: {e}")
         return '중립'
 
-# @app.route('/')
-# def index():
-#     return render_template('index.html')
-
-# @app.route('/')
-# def index():
-#     return app.send_static_file('index.html')
-
 @app.route('/')
 def index():
-    return send_from_directory(BASE_DIR, 'index.html')
+    return render_template('index.html')
 
 @app.route('/search', methods=['POST'])
 def search():
@@ -81,7 +73,7 @@ def search():
     if not keyword:
         return jsonify({'error': '키워드를 입력해주세요.'}), 400
 
-    # Check if font file exists
+    # 한글 폰트 파일 확인인
     if not os.path.exists(FONT_PATH):
         logging.error(f"Font file not found at: {FONT_PATH}")
         return jsonify({'error': '서버에 한국어 폰트가 없습니다. 관리자에게 문의하세요.'}), 500
@@ -95,7 +87,7 @@ def search():
         date_str = day.strftime('%Y%m%d')
         logging.debug(f"Searching for keyword: {keyword}, date: {date_str}")
 
-        for start in range(1, 100, 10):  # 10 페이지
+        for start in range(1, 100, 10):  # 10개씩 10 페이지 -> 100개
             try:
                 url = (
                     f"https://search.naver.com/search.naver?where=news&query={keyword}"
@@ -123,10 +115,10 @@ def search():
     if not all_articles:
         return jsonify({'error': '검색 결과가 없습니다. 다른 키워드나 날짜를 시도해보세요.'}), 404
 
-    # Generate word cloud
+    # word cloud 만들기
     wordcloud_url = generate_wordcloud(all_text)
 
-    # Sentiment analysis
+    # 감정 분석
     sentiment_counts = {'긍정': 0, '부정': 0, '중립': 0}
     for _, text in all_articles:
         sentiment = analyze_sentiment(text)
