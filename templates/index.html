@@ -10,7 +10,7 @@
 <body class="bg-gray-100 font-['Pretendard']">
   <div class="min-h-screen flex justify-center items-start">
     <div class="w-full max-w-4xl px-4 sm:px-6 lg:px-8 py-8">
-      <h1 class="text-3xl font-bold text-gray-900 text-center mb-8">뉴스 크롤러 & 분석</h1>
+      <h1 class="text-3xl font-bold text-gray-900 text-center mb-8">네이버 뉴스 크롤링 & 분석</h1>
 
       <div class="bg-white shadow rounded-lg p-6 mb-8">
         <div class="flex flex-col sm:flex-row gap-4">
@@ -43,19 +43,8 @@
 
         <div class="bg-white shadow rounded-lg p-6">
           <h2 class="text-2xl font-semibold text-gray-900 mb-4">감정 분석</h2>
-          <div id="sentiment" class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <div class="p-4 bg-green-100 rounded-lg text-center">
-              <p class="text-lg font-medium text-green-800">긍정</p>
-              <p id="positive" class="text-2xl font-bold text-green-900">0</p>
-            </div>
-            <div class="p-4 bg-red-100 rounded-lg text-center">
-              <p class="text-lg font-medium text-red-800">부정</p>
-              <p id="negative" class="text-2xl font-bold text-red-900">0</p>
-            </div>
-            <div class="p-4 bg-gray-100 rounded-lg text-center">
-              <p class="text-lg font-medium text-gray-800">중립</p>
-              <p id="neutral" class="text-2xl font-bold text-gray-900">0</p>
-            </div>
+          <div id="sentiment" class="flex justify-center">
+            <img id="sentimentChart" class="max-w-md rounded-lg" alt="Sentiment Pie Chart" />
           </div>
         </div>
       </div>

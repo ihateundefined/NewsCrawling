@@ -48,10 +48,9 @@ async function performSearch() {
       const wordcloudImg = document.getElementById('wordcloud');
       wordcloudImg.src = data.wordcloud || 'data:image/png;base64,';
 
-      // 감정 분석 결과 보이기
-      document.getElementById('positive').textContent = data.sentiment['긍정'] || 0;
-      document.getElementById('negative').textContent = data.sentiment['부정'] || 0;
-      document.getElementById('neutral').textContent = data.sentiment['중립'] || 0;
+      // 감정 분석 파이 차트 보이기
+      const sentimentChartImg = document.getElementById('sentimentChart');
+      sentimentChartImg.src = data.sentiment_chart || 'data:image/png;base64,';
 
       results.classList.remove('hidden');
     } catch (err) {
@@ -61,7 +60,7 @@ async function performSearch() {
     } finally {
       loading.classList.add('hidden');
     }
-  }
+}
 
 document.getElementById('search-btn').addEventListener('click', performSearch);
 
