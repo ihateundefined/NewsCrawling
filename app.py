@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, send_from_directory 
 import requests
 from bs4 import BeautifulSoup
 from datetime import datetime, timedelta
@@ -63,9 +63,17 @@ def analyze_sentiment(text):
         logging.error(f"Sentiment analysis failed: {e}")
         return '중립'
 
+# @app.route('/')
+# def index():
+#     return render_template('index.html')
+
+# @app.route('/')
+# def index():
+#     return app.send_static_file('index.html')
+
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return send_from_directory(BASE_DIR, 'index.html')
 
 @app.route('/search', methods=['POST'])
 def search():
