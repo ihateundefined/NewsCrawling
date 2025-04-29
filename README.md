@@ -18,9 +18,11 @@
 <div align="center">
   <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
   <img src="https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white" alt="Flask">
+  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5">
   <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS">
-  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript">
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript">  
 </div>
+
 
 ### 백엔드 (Backend)
 - **Python**: 주요 개발 언어
@@ -82,52 +84,13 @@ NewsCrawling/
 ```
 
 
-## ⚙️ 설치 및 실행 방법 (Installation and Setup)
-
-### 사전 요구사항 (Prerequisites)
-- Python 3.8 이상
-- pip (Python 패키지 관리자)
-
-### 설치 단계 (Installation Steps)
-
-1. 저장소 클론
-```bash
-git clone https://github.com/your-username/naver-news-crawler.git
-cd naver-news-crawler
-```
-
-2. 가상환경 생성 및 활성화
-```bash
-python -m venv venv
-source venv/bin/activate  # Windows: venv\Scripts\activate
-```
-
-3. 필요 패키지 설치
-```bash
-pip install -r requirements.txt
-```
-
-4. 폰트 설치 (한글 지원을 위한 Pretendard 폰트)
-```bash
-mkdir -p fonts
-# Pretendard 폰트 다운로드 후 fonts 디렉토리에 저장
-```
-
-5. 서버 실행
-```bash
-python app.py
-```
-
-6. 웹 브라우저에서 `http://localhost:5000` 접속
-
-
 ## 📋 향후 개발 계획
 
-- [ ] 날짜 범위 지정 기능 추가
-- [ ] 다양한 뉴스 소스 지원 (다음, 구글 뉴스 등)
-- [ ] 자연어 처리 기능 강화 (주제 모델링, 키워드 추출 등)
-- [ ] 사용자 정의 필터 기능 추가
-- [ ] 더 세분화된 감정 분석 제공
+- 날짜 범위 지정 기능 추가
+- 다양한 뉴스 소스 지원 (다음, 구글 뉴스 등)
+- 자연어 처리 기능 강화 (주제 모델링, 키워드 추출 등)
+- 사용자 정의 필터 기능 추가
+- 더 세분화된 감정 분석 제공
 
 
 ## 📫 Link to
