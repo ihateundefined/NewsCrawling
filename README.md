@@ -1,4 +1,4 @@
-# 네이버 뉴스 크롤러 & 분석기
+# 📰 네이버 뉴스 크롤러 & 분석기
 
 ## 📝 프로젝트 소개
 
@@ -15,7 +15,7 @@
 
 ## 💻 주요 기능 코드 예시
 
-### 1. 네이버 뉴스 크롤링
+### 🔍 1. 네이버 뉴스 크롤링
 ```python
 url = f"https://search.naver.com/search.naver?where=news&query={keyword}&ds={date_str}&de={date_str}&start={start}"
 response = requests.get(url, headers=headers, timeout=10)
@@ -23,7 +23,7 @@ soup = BeautifulSoup(response.text, 'html.parser')
 articles = soup.select('.sds-comps-text.sds-comps-text-ellipsis-1.sds-comps-text-type-headline1')
 ```
 
-### 2. 워드 클라우드 생성
+### ☁️ 2. 워드 클라우드 생성
 ```python
 wordcloud = WordCloud(
     width=800, height=400, background_color='white',
@@ -31,7 +31,7 @@ wordcloud = WordCloud(
 ).generate(text)
 ```
 
-### 3. 감정 분석
+### 😀 3. 감정 분석
 ```python
 analyzer = SentimentIntensityAnalyzer()
 score = analyzer.polarity_scores(text)
@@ -54,29 +54,29 @@ else:
 </div>
 
 
-### 백엔드 (Backend)
+### 🧠 백엔드 (Backend)
 - **Python**, **Flask**, **BeautifulSoup4**, **WordCloud**, **VADER Sentiment**, **Matplotlib**
 
-### 프론트엔드 (Frontend)
+### 🎨 프론트엔드 (Frontend)
 - **HTML/CSS**, **JavaScript**, **Tailwind CSS**, **Pretendard 폰트**
 
 
 ## 🖼️ 스크린샷
 
-- **메인 페이지**: 검색 키워드 입력
+- 🧭 **메인 페이지**: 검색 키워드 입력
 ![App Screenshot](sources/mainPage.png)
 
-- **뉴스 기사 목록**: 기사 제목과 날짜
+- 🗂️ **뉴스 기사 목록**: 기사 제목과 날짜
 ![News Titles](sources/newsTitles.png)
 
-- **워드 클라우드**: 키워드 시각화
+- ☁️ **워드 클라우드**: 키워드 시각화
 ![Word Cloud](sources/wordCloud.png)
 
-- **감정 분석**: 긍정/부정/중립 비율
+- 📊 **감정 분석**: 긍정/부정/중립 비율
 ![Sentiment Analysis](sources/sentimentPiChart.png)
 
 
-## 📄 프로젝트 구조
+## 📁 프로젝트 구조
 
 ```
 NewsCrawling/
@@ -105,12 +105,12 @@ NewsCrawling/
 
 ## ⚙️ 설치 및 실행 방법
 
-### 사전 요구사항
+### 📌 사전 요구사항
 - Python 3.8 이상
 - pip (Python 패키지 관리자)
 - 네이버 뉴스 API를 사용하지 않으므로 별도의 API 키는 필요하지 않습니다.
 
-### 설치
+### ✅ 설치
 
 1. 저장소 클론
 ```bash
@@ -133,7 +133,7 @@ python app.py
 4. 웹 브라우저에서 `http://localhost:5000` 접속
 
 
-### 에러 처리
+### 🧩 에러 처리
 - **폰트 파일 검사**: 서버 시작 시 `Pretendard-Regular.ttf` 폰트 파일의 존재 여부를 확인하여 오류 방지
 - **크롤링 안정성**: 요청 실패 시 로깅 및 예외 처리를 통해 안정적인 크롤링 수행
 
@@ -153,7 +153,7 @@ python app.py
    - 감정 분석 결과 (긍정/부정/중립) 파이 차트
 
 
-## 📋 향후 개발 계획
+## 🚀 향후 개발 계획
 
 - 날짜 범위 지정 기능 추가
 - 다양한 뉴스 소스 지원 (다음, 구글 뉴스 등)
@@ -162,7 +162,7 @@ python app.py
 - 더 세분화된 감정 분석: VADER 대신 한국어에 최적화된 NLP 모델(KoBERT, KNU SentiLex 등) 도입
 
 
-## 📫 Link to
+## 📫 Contact
 
 - **GitHub**: https://github.com/ihateundefined/NewsCrawling
 - **이메일**: ihateundefined@gmail.com
