@@ -128,7 +128,7 @@ def search():
     all_articles = []
     all_text = ""
 
-    for i in range(2):  # 최근 2일
+    for i in range(3):  # 최근 2일
         day = today - timedelta(days=i)
         date_str = day.strftime('%Y%m%d')
         logging.debug(f"Searching for keyword: {keyword}, date: {date_str}")
