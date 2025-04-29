@@ -4,12 +4,14 @@
 
 파이썬을 사용하여 네이버 뉴스를 크롤링하여 검색어와 관련된 기사를 수집하고, 다양한 데이터 분석 기능을 제공하는 웹 애플리케이션입니다. 수집된 뉴스 기사를 바탕으로 워드 클라우드를 생성하고 감정 분석을 통해 뉴스의 긍정/부정/중립 경향을 시각적으로 보여줍니다.
 
+
 ## ✨ 주요 기능
 
 - **뉴스 크롤링**: 네이버 뉴스에서 최근 n일간의 기사를 수집
 - **워드 클라우드**: 수집된 기사의 키워드를 시각화
 - **감정 분석**: 뉴스 기사의 긍정/부정/중립 성향 분석 및 파이 차트로 시각화
 - **반응형 디자인**: 모바일과 데스크톱에서 모두 사용 가능한 UI
+
 
 ## 🛠️ 기술 스택
 
@@ -34,12 +36,14 @@
 - **Tailwind CSS**: 스타일링
 - **Pretendard 폰트**: 한글 지원
 
+
 ## 🖼️ 스크린샷
 
 ![App Screenshot](sources/mainPage.png)
 ![News Titles](sources/newsTitles.png)
 ![Word Cloud](sources/wordCloud.png)
 ![Sentiment Analysis](sources/sentimentPiChart.png)
+
 
 ## 🌟 사용 예시
 
@@ -49,6 +53,7 @@
    - 검색된 뉴스 기사 목록
    - 워드 클라우드 시각화
    - 감정 분석 결과 (긍정/부정/중립) 파이 차트
+
 
 ## 📄 프로젝트 구조
 
@@ -75,6 +80,7 @@ NewsCrawling/
     ├── sentimentPiChart.png    # 감정 분석 결과 이미지
     └── wordCloud.png           # Word Cloud 결과 이미지
 ```
+
 
 ## ⚙️ 설치 및 실행 방법 (Installation and Setup)
 
@@ -114,9 +120,6 @@ python app.py
 
 6. 웹 브라우저에서 `http://localhost:5000` 접속
 
-## 📄 프로젝트 구조 (Project Structure)
-
-```
 
 ## 📋 향후 개발 계획
 
@@ -126,7 +129,8 @@ python app.py
 - [ ] 사용자 정의 필터 기능 추가
 - [ ] 더 세분화된 감정 분석 제공
 
-## ## 📫 Link to
+
+## 📫 Link to
 
 - **GitHub**: https://github.com/ihateundefined/NewsCrawling
 - **이메일**: ihateundefined@gmail.com
