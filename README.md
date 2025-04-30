@@ -16,6 +16,9 @@
 ## 💻 주요 기능 코드 예시
 
 ### 🔍 1. 네이버 뉴스 크롤링
+
+- **웹 크롤링 페이지** (네이버 뉴스) : https://search.naver.com/search.naver?where=news&query=
+
 ```python
 url = f"https://search.naver.com/search.naver?where=news&query={keyword}&ds={date_str}&de={date_str}&start={start}"
 response = requests.get(url, headers=headers, timeout=10)
